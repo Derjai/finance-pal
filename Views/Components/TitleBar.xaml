@@ -37,6 +37,20 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <Style x:Key="CloseButtonStyle" TargetType="Button" BasedOn="{StaticResource TitleBarButtonStyle}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="1" CornerRadius="0,10,0,0">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>        
+        </Style>
     </UserControl.Resources>
 
     <Border CornerRadius="10,10,0,0" Background="#034732" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown" >
@@ -55,10 +69,9 @@
             <Button Name="MinimizeButton" Grid.Column="1" Content="-" Click="Minimize_Click" 
             Style="{StaticResource TitleBarButtonStyle}"/>
             <Button Name="ExpandButton" Grid.Column="2" Content="□" 
-    Click="Expand_Click" Style="{StaticResource TitleBarButtonStyle}"/>
+                    Click="Expand_Click" Style="{StaticResource TitleBarButtonStyle}"/>
             <Button Name="CloseButton" Grid.Column="3" Content="x" 
-    Click="Close_Click" Style="{StaticResource TitleBarButtonStyle}"/>
+                    Click="Close_Click" Style="{StaticResource CloseButtonStyle}"/>
         </Grid>
     </Border>
-    
 </UserControl>
